@@ -16,7 +16,7 @@ const settings = {
 fetch(`https://api.unsplash.com/search/photos?per_page=1&query=recife`, settings)
 	.then(res => res.json())
 	.then((json) => {
-		console.log(json);
+		console.log(json.results[0].urls.full);
 	});
 
 var main = (function($) { var _ = {
