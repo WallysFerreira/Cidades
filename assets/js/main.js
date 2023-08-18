@@ -11,13 +11,8 @@ const settings = {
 	method: 'GET',
 	headers: headers
 };
-
-
-fetch(`https://api.unsplash.com/search/photos?per_page=1&query=recife`, settings)
-	.then(res => res.json())
-	.then((json) => {
-		console.log(json.results[0].urls.full);
-	});
+var nomeCidade;
+var urlFotos;
 
 var main = (function($) { var _ = {
 	/**
@@ -205,6 +200,18 @@ var main = (function($) { var _ = {
 					}, 100 + Math.max(_.settings.layoutDuration - 150, 0));
 
 				});
+
+			// Atualizar query sempre que uma tecla for pressionada
+			_.$window.on('keyup', function() {
+				nomeCidade = $('#cidade').val();
+				fetch(`https://api.unsplash.com/search/photos?per_page=2&query=${nomeCidade}`, settings)
+					.then(res => res.json())
+					.then((json) => {
+						for (var i = 0; i < json.results.length; i++) {
+							console.log(json.results[i].urls.full);
+						}
+					});
+			});
 
 			// Disable animations/transitions on resize.
 				var resizeTimeout;
