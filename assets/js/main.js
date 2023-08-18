@@ -179,8 +179,6 @@ var main = (function($) { var _ = {
 
 			// Remove is-preload-* classes on load.
 				_.$window.on('load', function() {
-					_.getImages();
-
 					_.$body.removeClass('is-preload-0');
 
 					window.setTimeout(function() {
@@ -741,12 +739,6 @@ var main = (function($) { var _ = {
 		else
 			_.hide();
 
-	},
-
-	getImages: function() {
-		$.getJSON('https://api.unsplash.com/photos/random?count=1', function(json_data) {
-			alert(JSON.stringify(json_data));
-		});
 	},
 
 }; return _; })(jQuery); main.init();
