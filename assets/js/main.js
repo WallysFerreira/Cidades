@@ -4,11 +4,16 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+const headers = new Headers({
+	"Authorization": "Client-ID Gnyk3zT5LxqqYaOq3XbDbQVgz4W6uZWzRm4wQQF9gjI"
+});
 const settings = {
 	method: 'GET',
+	headers: headers
 };
 
-fetch(`https://api.unsplash.com/search/photos?per_page=1&query=recife&client_id=Gnyk3zT5LxqqYaOq3XbDbQVgz4W6uZWzRm4wQQF9gjI`, settings)
+
+fetch(`https://api.unsplash.com/search/photos?per_page=1&query=recife`, settings)
 	.then(res => res.json())
 	.then((json) => {
 		console.log(json);
