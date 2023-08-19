@@ -209,6 +209,12 @@ var main = (function($) { var _ = {
 					.then((json) => {
 						for (var i = 0; i < json.results.length; i++) {
 							console.log(json.results[i].urls.full);
+
+							$(
+								`<article>` + 
+								`<a class="thumbnail" src="${json.results[i].urls.full}"><img src="${json.results[i].urls.thumb}" alt="" /></a>` + 
+								`</article>`
+							).appendTo(_.$thumbnails);
 						}
 					});
 			});
