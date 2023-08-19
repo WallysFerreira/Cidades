@@ -11,7 +11,7 @@ const settings = {
 	method: 'GET',
 	headers: headers
 };
-var nomeCidade;
+var pronto = false;
 var urlFotos;
 
 var main = (function($) { var _ = {
@@ -200,24 +200,6 @@ var main = (function($) { var _ = {
 					}, 100 + Math.max(_.settings.layoutDuration - 150, 0));
 
 				});
-
-			// Atualizar query sempre que uma tecla for pressionada
-			_.$window.on('keyup', function() {
-				nomeCidade = $('#cidade').val();
-				fetch(`https://api.unsplash.com/search/photos?per_page=2&query=${nomeCidade}`, settings)
-					.then(res => res.json())
-					.then((json) => {
-						for (var i = 0; i < json.results.length; i++) {
-							console.log(json.results[i].urls.full);
-
-							$(
-								`<article>` + 
-								`<a class="thumbnail" src="${json.results[i].urls.full}"><img src="${json.results[i].urls.thumb}" alt="" /></a>` + 
-								`</article>`
-							).appendTo(_.$thumbnails);
-						}
-					});
-			});
 
 			// Disable animations/transitions on resize.
 				var resizeTimeout;
@@ -506,18 +488,16 @@ var main = (function($) { var _ = {
 			});
 
 		// Everything else.
-			_.initProperties();
-			_.initViewer();
-			_.initEvents();
+		_.initProperties();
+		_.initEvents();
+		_.initViewer();
 
 		// Show first slide if xsmall isn't active.
-			breakpoints.on('>xsmall', function() {
-
-				if (_.current === null)
-					_.switchTo(0, true);
-
-			});
-
+		breakpoints.on('>xsmall', function() {
+			if (_.current === null)
+			_.switchTo(0, true);
+		});
+			
 	},
 
 	/**
