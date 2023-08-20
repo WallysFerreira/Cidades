@@ -489,6 +489,7 @@ var main = (function($) { var _ = {
 		_.initProperties();
 		_.initEvents();
 		_.initViewer();
+		_.encontrarCidade();
 
 		// Show first slide if xsmall isn't active.
 		breakpoints.on('>xsmall', function() {
@@ -749,10 +750,26 @@ var main = (function($) { var _ = {
 
 	// Chamada para API nominatim, chama funcao pegar fotos passando o nome da cidade
 	encontrarCidade: function() {
+		navigator.geolocation.getCurrentPosition((position) => {
+			var lon = position.coords.longitude;
+			var lat = position.coords.latitude;
+			fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`, {method: 'GET'})
+			.then(res => res.json())
+			.then((json) => {
+				$('#cidade').text(json.address.city);
+				_.pegarFotos(json.address.city);
+			});
+
+		});
 	},
 
 	// Pega 12 fotos usando a cidade recebida como query na API do unsplash
 	pegarFotos: function(cidade) {
+		fetch(`https://api.unsplash.com/search/photos?page=1&query=${cidade}`, settings)
+		.then(res => res.json())
+		.then((json) => {
+			console.log(json);
+		});
 	},
 
 	// Recebe um array de urls, muda o atributo src e href das thumbs para esses urls
@@ -762,3 +779,4 @@ var main = (function($) { var _ = {
 }; return _; })(jQuery); 
 
 main.init();
+
