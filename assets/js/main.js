@@ -756,8 +756,13 @@ var main = (function($) { var _ = {
 			fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`, {method: 'GET'})
 			.then(res => res.json())
 			.then((json) => {
-				$('#cidade').text(json.address.city);
-				_.pegarFotos(json.address.city);
+				if (json.address.city == undefined) {
+					$('#cidade').text(json.address.state);
+					_.pegarFotos(json.address.state);
+				} else {
+					$('#cidade').text(json.address.city);
+					_.pegarFotos(json.address.city);
+				}
 			});
 
 		});
@@ -765,15 +770,25 @@ var main = (function($) { var _ = {
 
 	// Pega 12 fotos usando a cidade recebida como query na API do unsplash
 	pegarFotos: function(cidade) {
-		fetch(`https://api.unsplash.com/search/photos?page=1&query=${cidade}`, settings)
+		fetch(`https://api.unsplash.com/search/photos?per_page=12&query=${cidade}`, settings)
 		.then(res => res.json())
 		.then((json) => {
-			console.log(json);
+			for (var i = 0; i < 12; i++) {
+				_.mudarThumbs(json.results[i].urls.full, i);
+			}
 		});
 	},
 
 	// Recebe um array de urls, muda o atributo src e href das thumbs para esses urls
-	mudarThumbs: function() {
+	mudarThumbs: function(url, index) {
+		$(`#full${index + 1}`).attr('href', url);
+		$(`#thumb${index + 1}`).attr('src', url);
+
+		_.slides[index].url = url;
+		_.initViewer();
+
+
+		//$('.slide > .image').css('background-image', `url(${url})`);
 	}
 
 }; return _; })(jQuery); 
