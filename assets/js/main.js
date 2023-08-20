@@ -11,8 +11,6 @@ const settings = {
 	method: 'GET',
 	headers: headers
 };
-var pronto = false;
-var urlFotos;
 
 var main = (function($) { var _ = {
 	/**
@@ -749,4 +747,6 @@ var main = (function($) { var _ = {
 
 	},
 
-}; return _; })(jQuery); main.init();
+}; return _; })(jQuery); 
+
+main.init();
