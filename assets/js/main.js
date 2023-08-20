@@ -747,6 +747,18 @@ var main = (function($) { var _ = {
 
 	},
 
+	// Chamada para API nominatim, chama funcao pegar fotos passando o nome da cidade
+	encontrarCidade: function() {
+	},
+
+	// Pega 12 fotos usando a cidade recebida como query na API do unsplash
+	pegarFotos: function(cidade) {
+	},
+
+	// Recebe um array de urls, muda o atributo src e href das thumbs para esses urls
+	mudarThumbs: function() {
+	}
+
 }; return _; })(jQuery); 
 
 main.init();
