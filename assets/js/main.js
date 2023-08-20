@@ -751,11 +751,15 @@ var main = (function($) { var _ = {
 	// Chamada para API nominatim, chama funcao pegar fotos passando o nome da cidade
 	encontrarCidade: function() {
 		navigator.geolocation.getCurrentPosition((position) => {
+			// Guardar longitude e latitude do usuario
 			var lon = position.coords.longitude;
 			var lat = position.coords.latitude;
+			
+			// Fazer requisição a API de geocoding reverso
 			fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`, {method: 'GET'})
 			.then(res => res.json())
 			.then((json) => {
+				// Se não tiver uma cidade nas informações, usar o estado
 				if (json.address.city == undefined) {
 					$('#cidade').text(json.address.state);
 					_.pegarFotos(json.address.state);
@@ -774,21 +778,20 @@ var main = (function($) { var _ = {
 		.then(res => res.json())
 		.then((json) => {
 			for (var i = 0; i < 12; i++) {
-				_.mudarThumbs(json.results[i].urls.full, i);
+				_.mudarThumbs(json.results[i].urls, i);
 			}
 		});
 	},
 
 	// Recebe um array de urls, muda o atributo src e href das thumbs para esses urls
 	mudarThumbs: function(url, index) {
-		$(`#full${index + 1}`).attr('href', url);
-		$(`#thumb${index + 1}`).attr('src', url);
+		// Mudar o link de imagem para cada thumb
+		$(`#full${index + 1}`).attr('href', url.full);
+		$(`#thumb${index + 1}`).attr('src', url.thumb);
 
+		// Colocar o url no slide de cada thumb
 		_.slides[index].url = url;
 		_.initViewer();
-
-
-		//$('.slide > .image').css('background-image', `url(${url})`);
 	}
 
 }; return _; })(jQuery); 
