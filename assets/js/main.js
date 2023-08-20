@@ -795,3 +795,6 @@ var main = (function($) { var _ = {
 
 main.init();
 
+// Ver se tem como corrigir a parte preta nas imagens
+// Adicionar funcionalidade de mudar a cidade
+// Adicionar frase sobre a cidade
