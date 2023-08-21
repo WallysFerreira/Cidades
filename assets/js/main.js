@@ -401,6 +401,8 @@ var main = (function($) { var _ = {
 				_.alternarVisibilidade();
 			}
 		});
+
+		$('article').css('background-color', 'white');
 	},
 
 	/**
@@ -835,6 +837,6 @@ var main = (function($) { var _ = {
 
 main.init();
 
-// Ver se tem como corrigir a parte preta nas imagens
+// Adicionar modo escuro
 // Adicionar frase sobre a cidade
 // Mudar h2 e p nas thumbs
