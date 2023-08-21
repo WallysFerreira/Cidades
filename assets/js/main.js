@@ -774,7 +774,9 @@ var main = (function($) { var _ = {
 
 	// Pega 12 fotos usando a cidade recebida como query na API do unsplash
 	pegarFotos: function(cidade) {
-		fetch(`https://api.unsplash.com/search/photos?per_page=12&query=${cidade}`, settings)
+		var randomPage = Math.floor(Math.random() * 10)  + 1;
+
+		fetch(`https://api.unsplash.com/search/photos?per_page=12&page=${randomPage}&query=${cidade}`, settings)
 		.then(res => res.json())
 		.then((json) => {
 			for (var i = 0; i < 12; i++) {
@@ -802,7 +804,6 @@ var main = (function($) { var _ = {
 main.init();
 
 // Ver se tem como corrigir a parte preta nas imagens
-// Usar uma pagina aleatoria na chamada pra api de imagens
 // Adicionar funcionalidade de mudar a cidade
 // Adicionar frase sobre a cidade
 // Mudar h2 e p nas thumbs
