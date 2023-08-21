@@ -77,6 +77,15 @@ input, select, textarea {
 	display: none;
 }
 
+#header a {
+	margin-left: 3%;
+	cursor: pointer;
+}
+
+#header img {
+	padding-bottom: 1%;
+}
+
 .align-horizontal {
 	display: flex;
 	flex-direction: row;
