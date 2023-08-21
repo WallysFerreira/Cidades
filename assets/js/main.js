@@ -84,6 +84,12 @@ var main = (function($) { var _ = {
 	 */
 	$navPrevious: null,
 
+	$botaoCidade: null,
+
+	$tituloCidade: null,
+
+	$inputCidade: null,
+
 	/**
 	 * Slides.
 	 * @var {array}
@@ -175,6 +181,11 @@ var main = (function($) { var _ = {
 				.appendTo(_.$main);
 
 			_.$toggle = $('.toggle');
+
+		// Mudar cidade.
+		_.$botaoCidade = $('#editarCidade');
+		_.$tituloCidade = $('#cidade');
+		_.$inputCidade = $('#input-cidade');
 
 	},
 
@@ -378,6 +389,18 @@ var main = (function($) { var _ = {
 
 			});
 
+		// Ao clicar no botão de mudar cidade mostrar a caixa de texto
+		_.$botaoCidade.on('click', function() {
+			_.alternarVisibilidade();
+		});
+
+		_.$inputCidade.on('keypress', function(event) {
+			if (event.which == 13) {
+				_.pegarFotos(_.$inputCidade.val());
+				_.$tituloCidade.text(_.$inputCidade.val());
+				_.alternarVisibilidade();
+			}
+		});
 	},
 
 	/**
@@ -796,7 +819,16 @@ var main = (function($) { var _ = {
 		_.initViewer();
 	},
 
-	mudarCidade: function() {
+	alternarVisibilidade: function() {
+		if (_.$botaoCidade.hasClass('hidden')) {
+			_.$botaoCidade.removeClass('hidden');
+			_.$tituloCidade.removeClass('hidden');
+			_.$inputCidade.addClass('hidden');
+		} else {
+			_.$inputCidade.removeClass('hidden');
+			_.$tituloCidade.addClass('hidden');
+			_.$botaoCidade.addClass('hidden');
+		}
 	}
 
 }; return _; })(jQuery); 
@@ -804,6 +836,5 @@ var main = (function($) { var _ = {
 main.init();
 
 // Ver se tem como corrigir a parte preta nas imagens
-// Adicionar funcionalidade de mudar a cidade
 // Adicionar frase sobre a cidade
 // Mudar h2 e p nas thumbs
