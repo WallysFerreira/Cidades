@@ -792,6 +792,9 @@ var main = (function($) { var _ = {
 		// Colocar o url no slide de cada thumb
 		_.slides[index].url = url;
 		_.initViewer();
+	},
+
+	mudarCidade: function() {
 	}
 
 }; return _; })(jQuery); 
@@ -799,5 +802,7 @@ var main = (function($) { var _ = {
 main.init();
 
 // Ver se tem como corrigir a parte preta nas imagens
+// Usar uma pagina aleatoria na chamada pra api de imagens
 // Adicionar funcionalidade de mudar a cidade
 // Adicionar frase sobre a cidade
+// Mudar h2 e p nas thumbs
