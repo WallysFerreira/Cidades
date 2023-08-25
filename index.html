@@ -4,13 +4,16 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html lang="pt-br">
 	<head>
 		<title>Cidades</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Veja fotos da sua cidade" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link rel="preconnect" href="https://nominatim.openstreetmap.org" />
+		<noscript><link rel="preload" href="assets/css/noscript.css" as="style" /></noscript>
 	</head>
 	<body class="is-preload-0 is-preload-1 is-preload-2">
 
@@ -22,8 +25,8 @@
 						<input id="input-cidade" class="hidden" type='text'>
 						<div class="align-horizontal">
 							<h1 id="cidade"></h1>
-							<a id="editarCidade" >
-								<img src="assets/css/images/edit-button-svgrepo-com.svg" width="20px">
+							<a id="editarCidade" aria-label="Editar cidade">
+								<img src="assets/css/images/edit-button-svgrepo-com.svg" width="20px" alt="Simbolo de editar">
 							</a>
 						</div>
 						<p>Frase curta sobre a cidade</p>
@@ -32,62 +35,62 @@
 				<!-- Thumbnail -->
 					<section id="thumbnails">
 						<article>
-							<a id="full1" class="thumbnail" href="images/fulls/01.jpg" data-position="left center"><img id="thumb1" src="images/thumbs/01.jpg" alt="" /></a>
+							<a aria-label="Colocar imagem em tamanho inteiro" id="full1" class="thumbnail" href="images/fulls/01.jpg" data-position="left center"><img id="thumb1" src="images/thumbs/01.jpg" alt="" /></a>
 							<h2>Diam tempus accumsan</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 						</article>
 						<article>
-							<a id="full2" class="thumbnail" href="images/fulls/02.jpg"><img id="thumb2" src="images/thumbs/02.jpg" alt="" /></a>
+							<a aria-label="Colocar imagem em tamanho inteiro" id="full2" class="thumbnail" href="images/fulls/02.jpg"><img id="thumb2" src="images/thumbs/02.jpg" alt="" /></a>
 							<h2>Vivamus convallis libero</h2>
 							<p>Sed velit lacus, laoreet at venenatis convallis in lorem tincidunt.</p>
 						</article>
 						<article>
-							<a id="full3" class="thumbnail" href="images/fulls/03.jpg" data-position="top center"><img id="thumb3" src="images/thumbs/03.jpg" alt="" /></a>
+							<a aria-label="Colocar imagem em tamanho inteiro" id="full3" class="thumbnail" href="images/fulls/03.jpg" data-position="top center"><img id="thumb3" src="images/thumbs/03.jpg" alt="" /></a>
 							<h2>Nec accumsan enim felis</h2>
 							<p>Maecenas eleifend tellus ut turpis eleifend, vitae pretium faucibus.</p>
 						</article>
 						<article>
-							<a id="full4" class="thumbnail" href="images/fulls/04.jpg"><img id="thumb4" src="images/thumbs/04.jpg" alt="" /></a>
+							<a aria-label="Colocar imagem em tamanho inteiro" id="full4" class="thumbnail" href="images/fulls/04.jpg"><img id="thumb4" src="images/thumbs/04.jpg" alt="" /></a>
 							<h2>Donec maximus nisi eget</h2>
 							<p>Tristique in nulla vel congue. Sed sociis natoque parturient nascetur.</p>
 						</article>
 						<article>
-							<a id="full5" class="thumbnail" href="images/fulls/05.jpg" data-position="top center"><img id="thumb5" src="images/thumbs/05.jpg" alt="" /></a>
+							<a aria-label="Colocar imagem em tamanho inteiro" id="full5" class="thumbnail" href="images/fulls/05.jpg" data-position="top center"><img id="thumb5" src="images/thumbs/05.jpg" alt="" /></a>
 							<h2>Nullam vitae nunc vulputate</h2>
 							<p>In pellentesque cursus velit id posuere. Donec vehicula nulla.</p>
 						</article>
 						<article>
-							<a id="full6" class="thumbnail" href="images/fulls/06.jpg"><img id="thumb6" src="images/thumbs/06.jpg" alt="" /></a>
+							<a aria-label="Colocar imagem em tamanho inteiro" id="full6" class="thumbnail" href="images/fulls/06.jpg"><img id="thumb6" src="images/thumbs/06.jpg" alt="" /></a>
 							<h2>Phasellus magna faucibus</h2>
 							<p>Nulla dignissim libero maximus tellus varius dictum ut posuere magna.</p>
 						</article>
 						<article>
-							<a id="full7" class="thumbnail" href="images/fulls/07.jpg"><img id="thumb7" src="images/thumbs/07.jpg" alt="" /></a>
+							<a aria-label="Colocar imagem em tamanho inteiro" id="full7" class="thumbnail" href="images/fulls/07.jpg"><img id="thumb7" src="images/thumbs/07.jpg" alt="" /></a>
 							<h2>Proin quis mauris</h2>
 							<p>Etiam ultricies, lorem quis efficitur porttitor, facilisis ante orci urna.</p>
 						</article>
 						<article>
-							<a id="full8" class="thumbnail" href="images/fulls/08.jpg"><img id="thumb8" src="images/thumbs/08.jpg" alt="" /></a>
+							<a aria-label="Colocar imagem em tamanho inteiro" id="full8" class="thumbnail" href="images/fulls/08.jpg"><img id="thumb8" src="images/thumbs/08.jpg" alt="" /></a>
 							<h2>Gravida quis varius enim</h2>
 							<p>Nunc egestas congue lorem. Nullam dictum placerat ex sapien tortor mattis.</p>
 						</article>
 						<article>
-							<a id="full9" class="thumbnail" href="images/fulls/09.jpg"><img id="thumb9" src="images/thumbs/09.jpg" alt="" /></a>
+							<a aria-label="Colocar imagem em tamanho inteiro" id="full9" class="thumbnail" href="images/fulls/09.jpg"><img id="thumb9" src="images/thumbs/09.jpg" alt="" /></a>
 							<h2>Morbi eget vitae adipiscing</h2>
 							<p>In quis vulputate dui. Maecenas metus elit, dictum praesent lacinia lacus.</p>
 						</article>
 						<article>
-							<a id="full10" class="thumbnail" href="images/fulls/10.jpg"><img id="thumb10" src="images/thumbs/10.jpg" alt="" /></a>
+							<a aria-label="Colocar imagem em tamanho inteiro" id="full10" class="thumbnail" href="images/fulls/10.jpg"><img id="thumb10" src="images/thumbs/10.jpg" alt="" /></a>
 							<h2>Habitant tristique senectus</h2>
 							<p>Vestibulum ante ipsum primis in faucibus orci luctus ac tincidunt dolor.</p>
 						</article>
 						<article>
-							<a id="full11" class="thumbnail" href="images/fulls/11.jpg"><img id="thumb11" src="images/thumbs/11.jpg" alt="" /></a>
+							<a aria-label="Colocar imagem em tamanho inteiro" id="full11" class="thumbnail" href="images/fulls/11.jpg"><img id="thumb11" src="images/thumbs/11.jpg" alt="" /></a>
 							<h2>Pharetra ex non faucibus</h2>
 							<p>Ut sed magna euismod leo laoreet congue. Fusce congue enim ultricies.</p>
 						</article>
 						<article>
-							<a id="full12" class="thumbnail" href="images/fulls/12.jpg"><img id="thumb12" src="images/thumbs/12.jpg" alt="" /></a>
+							<a aria-label="Colocar imagem em tamanho inteiro" id="full12" class="thumbnail" href="images/fulls/12.jpg"><img id="thumb12" src="images/thumbs/12.jpg" alt="" /></a>
 							<h2>Mattis lorem sodales</h2>
 							<p>Feugiat auctor leo massa, nec vestibulum nisl erat faucibus, rutrum nulla.</p>
 						</article>
@@ -96,7 +99,7 @@
 				<!-- Footer -->
 					<footer id="footer">
 						<ul class="copyright">
-							<li>Wallys Ferreira.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a>.</li>
+							<li>Wallys Ferreira.</li><li>Design: <a href="http://html5up.net" aria-label="Ir para o site da HTML 5 Up" >HTML5 UP</a>.</li>
 						</ul>
 					</footer>
 
