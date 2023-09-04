@@ -30,7 +30,8 @@
     {
       "src": "images/touch/167.png",
       "sizes": "167x167",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "images/touch/180.png",
