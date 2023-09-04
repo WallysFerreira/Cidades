@@ -239,6 +239,14 @@ var main = (function($) { var _ = {
 						_.hide();
 
 				});
+			
+				if (breakpoints.active('<=medium')) {
+					_.$navNext.addClass('hidden');
+					_.$navPrevious.addClass('hidden');
+				} else {
+					_.$navNext.removeClass('hidden');
+					_.$navPrevious.removeClass('hidden');
+				}
 
 			// Touch gestures.
 				_.$viewer
