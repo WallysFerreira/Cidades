@@ -1,31 +1,18 @@
-const CACHE_NAME = 'cache';
+// This is the "Offline copy of pages" service worker
 
-const PRECACHE_ASSETS = [
-	'/assets/',
-	'/images/'
-]
+const CACHE = "pwabuilder-offline";
 
-self.addEventListener('install', event => {
-	event.waitUntil((async () => {
-		const cache = await caches.open(CACHE_NAME);
-		cache.addAll(PRECACHE_ASSETS);
-	})());
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
+
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "SKIP_WAITING") {
+    self.skipWaiting();
+  }
 });
 
-self.addEventListener('activate', event => {
-	event.waitUntil(self.clients.claim());
-});
-
-self.addEventListener('fetch', event => {
-	event.respondWith(async () => {
-		const cache = await caches.open(CACHE_NAME);
-
-		const cachedResponse = await cache.match(event.request);
-
-		if (cachedResponse !== undefined) {
-			return cachedResponse
-		} else {
-			return fetch(event.request)
-		}
-	});
-});
+workbox.routing.registerRoute(
+  new RegExp('/*'),
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: CACHE
+  })
+);
