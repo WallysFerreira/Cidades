@@ -851,7 +851,6 @@ var main = (function($) { var _ = {
 
 main.init();
 
-// Colocar botao de pesquisar
 // Adicionar modo escuro
 // Adicionar frase sobre a cidade
 // Mudar h2 e p nas thumbs
