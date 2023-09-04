@@ -1,0 +1,40 @@
+{
+  "name": "Cidades",
+  "short_name": "Cidades",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "Veja fotos da sua cidade",
+  "icons": [
+    {
+      "src": "images/touch/50.png"
+      "sizes": "50x50",
+      "type": "image/png"
+    },
+    {
+      "src": "images/touch/72.png"
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "images/touch/100.png"
+      "sizes": "100x100",
+      "type": "image/png"
+    },
+    {
+      "src": "images/touch/144.png"
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "images/touch/167.png"
+      "sizes": "167x167",
+      "type": "image/png"
+    },
+    {
+      "src": "images/touch/180.png"
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+}
