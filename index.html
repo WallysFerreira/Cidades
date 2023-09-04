@@ -22,12 +22,17 @@
 
 				<!-- Header -->
 					<header id="header">
-						<input id="input-cidade" class="hidden" type='text'>
+						<div id="div-input" class="hidden">
+							<input id="input-cidade" type='text'>
+							<button id="pesquisarCidade" aria-label="Pesquisar cidade">
+								<img src="assets/css/images/search-svgrepo-com.svg" width="20px" alt="Simbolo de pesquisar"/>
+							</button>
+						</div>
 						<div class="align-horizontal">
 							<h1 id="cidade"></h1>
-							<a id="editarCidade" aria-label="Editar cidade">
-								<img src="assets/css/images/edit-button-svgrepo-com.svg" width="20px" alt="Simbolo de editar">
-							</a>
+							<button id="editarCidade" aria-label="Editar cidade">
+									<img src="assets/css/images/edit-button-svgrepo-com.svg" width="20px" alt="Simbolo de editar">
+							</button>
 						</div>
 						<p>Frase curta sobre a cidade</p>
 					</header>

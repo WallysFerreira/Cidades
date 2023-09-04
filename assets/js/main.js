@@ -90,6 +90,10 @@ var main = (function($) { var _ = {
 
 	$inputCidade: null,
 
+	$divInput: null,
+
+	$pesquisarCidade: null,
+
 	/**
 	 * Slides.
 	 * @var {array}
@@ -186,6 +190,8 @@ var main = (function($) { var _ = {
 		_.$botaoCidade = $('#editarCidade');
 		_.$tituloCidade = $('#cidade');
 		_.$inputCidade = $('#input-cidade');
+		_.$pesquisarCidade = $('#pesquisarCidade');
+		_.$divInput = $('#div-input');
 
 	},
 
@@ -400,6 +406,12 @@ var main = (function($) { var _ = {
 				_.$tituloCidade.text(_.$inputCidade.val());
 				_.alternarVisibilidade();
 			}
+		});
+
+		_.$pesquisarCidade.on('click', function() {
+			_.pegarFotos(_.$inputCidade.val());
+			_.$tituloCidade.text(_.$inputCidade.val());
+			_.alternarVisibilidade();
 		});
 
 		$('article').css('background-color', 'white');
@@ -827,9 +839,9 @@ var main = (function($) { var _ = {
 		if (_.$botaoCidade.hasClass('hidden')) {
 			_.$botaoCidade.removeClass('hidden');
 			_.$tituloCidade.removeClass('hidden');
-			_.$inputCidade.addClass('hidden');
+			_.$divInput.addClass('hidden');
 		} else {
-			_.$inputCidade.removeClass('hidden');
+			_.$divInput.removeClass('hidden');
 			_.$tituloCidade.addClass('hidden');
 			_.$botaoCidade.addClass('hidden');
 		}
