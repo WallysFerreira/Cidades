@@ -199,11 +199,13 @@ var main = (function($) { var _ = {
 		// Quando estiver online salvar as informacoes no dispositivo
 		$(window).addEventListener("online", () => {
 			offlineStorage.setItem("cidade", _.$tituloCidade);
+			console.log("Nome da cidade salvo no local storage");
 		});
 
 		// Quando estiver offline pegar as informacoes do dispositivo
 		$(window).addEventListener("offline", () => {
 			_.$tituloCidade = offlineStorage.getItem("cidade");
+			console.log("Nome da cidade recebido do local storage")
 		});
 	},
 
