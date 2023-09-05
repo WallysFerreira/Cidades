@@ -154,6 +154,9 @@ var main = (function($) { var _ = {
 	 * Initialize properties.
 	 */
 	initProperties: function() {
+		offlineStorage = localStorage
+
+		
 
 		// Window, body.
 			_.$window = $(window);
@@ -192,7 +195,16 @@ var main = (function($) { var _ = {
 		_.$inputCidade = $('#input-cidade');
 		_.$pesquisarCidade = $('#pesquisarCidade');
 		_.$divInput = $('#div-input');
+		
+		// Quando estiver online salvar as informacoes no dispositivo
+		$(window).addEventListener("online", () => {
+			offlineStorage.setItem("cidade", _.$tituloCidade);
+		});
 
+		// Quando estiver offline pegar as informacoes do dispositivo
+		$(window).addEventListener("offline", () => {
+			offlineStorage.getItem("cidade");
+		});
 	},
 
 	/**
