@@ -203,7 +203,7 @@ var main = (function($) { var _ = {
 
 		// Quando estiver offline pegar as informacoes do dispositivo
 		$(window).addEventListener("offline", () => {
-			offlineStorage.getItem("cidade");
+			_.$tituloCidade = offlineStorage.getItem("cidade");
 		});
 	},
 
