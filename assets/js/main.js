@@ -196,9 +196,11 @@ var main = (function($) { var _ = {
 		
 		// Quando estiver online salvar as informacoes no dispositivo
 		if (navigator.onLine) {
-			console.log("Online")
+			offlineStorage.setItem("tituloCidade", _.$tituloCidade.text);
+			console.log("Nome da cidade salvo no local storage");
 		} else {
-			console.log("Offline")
+			_.$tituloCidade.text(offlineStorage.getItem("tituloCidade"));
+			console.log("Nome da cidade recuperado do local storage");
 		}
 
 		// Quando estiver offline pegar as informacoes do dispositivo
