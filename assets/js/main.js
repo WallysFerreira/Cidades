@@ -156,8 +156,6 @@ var main = (function($) { var _ = {
 	initProperties: function() {
 		offlineStorage = localStorage
 
-		
-
 		// Window, body.
 			_.$window = $(window);
 			_.$body = $('body');
@@ -197,16 +195,13 @@ var main = (function($) { var _ = {
 		_.$divInput = $('#div-input');
 		
 		// Quando estiver online salvar as informacoes no dispositivo
-		$(window).addEventListener("online", () => {
-			offlineStorage.setItem("cidade", _.$tituloCidade);
-			console.log("Nome da cidade salvo no local storage");
-		});
+		if (navigator.onLine) {
+			console.log("Online")
+		} else {
+			console.log("Offline")
+		}
 
 		// Quando estiver offline pegar as informacoes do dispositivo
-		$(window).addEventListener("offline", () => {
-			_.$tituloCidade = offlineStorage.getItem("cidade");
-			console.log("Nome da cidade recebido do local storage")
-		});
 	},
 
 	/**
